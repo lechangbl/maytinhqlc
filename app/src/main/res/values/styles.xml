@@ -60,13 +60,13 @@
 
     <style name="edtNhap">
         <item name="android:background">@drawable/bg_edittext</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">@dimen/textSizeNhap</item>
         <item name="android:ellipsize">none</item>
         <item name="android:scrollHorizontally">false</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
         <item name="android:inputType">number</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">left|center</item>
         <item name="android:maxLength">3</item>
         <item name="android:padding">5dp</item> <!-- 👈 Thêm dòng này -->
     </style>

@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">may tinh qlc</string>
+    <string name="app_name">Máy Tính QLC</string>
+    <string name="Goi_y_NR">Gợi ý NR:</string>
+    <string name="hintTheTichBia">Thể tích bia</string>
+    <string name="soChai">Số Chai:</string>
+    <string name="hintSoChai">0 chai</string>
+    <string name="hintNgatRong">0 chai</string>
 </resources>

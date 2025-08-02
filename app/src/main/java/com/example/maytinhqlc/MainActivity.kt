@@ -1,8 +1,13 @@
 package com.example.maytinhqlc
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Gravity
+import android.view.LayoutInflater
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,7 +28,25 @@ class MainActivity : AppCompatActivity() {
 
         // Thiết lập toolbar làm ActionBar
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "MÁY TÍNH QUẢN LÝ CA"
+//        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val inflater = LayoutInflater.from(this)
+        val customView = layoutInflater.inflate(R.layout.toolbar_custom, null)
+
+        val params = ActionBar.LayoutParams(
+            ActionBar.LayoutParams.MATCH_PARENT,
+            ActionBar.LayoutParams.MATCH_PARENT,
+            Gravity.CENTER
+        )
+
+        supportActionBar?.apply {
+            setDisplayShowTitleEnabled(false) // Tắt tiêu đề mặc định
+            setDisplayShowCustomEnabled(true) // Cho phép custom
+            setDisplayShowTitleEnabled(false)
+            setDisplayShowCustomEnabled(true)
+            setCustomView(customView, params)
+
+        }
 
         // Đảm bảo bố cục không bị che bởi thanh điều hướng hay status bar
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
@@ -44,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         binding.edtNhapTheTich.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.edtNhapTheTich.hint = ""
-                binding.edtNhapTheTich.text.clear()
+//                binding.edtNhapTheTich.text.clear()
             } else {
                 binding.edtNhapTheTich.hint = "Thế tích Bia"
                 tinhSoChai()
@@ -55,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         binding.edtNhapSoMayChiet.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.edtNhapSoMayChiet.hint = ""
-                binding.edtNhapSoMayChiet.text.clear()
+//                binding.edtNhapSoMayChiet.text.clear()
             } else {
                 binding.edtNhapSoMayChiet.hint = "Số máy Chiết"
                 tinhSoPallet()
@@ -66,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         binding.edtSoDauPhieu.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 binding.edtSoDauPhieu.hint = ""
-                binding.edtSoDauPhieu.text.clear()
+//                binding.edtSoDauPhieu.text.clear()
             } else {
                 binding.edtSoDauPhieu.hint = "Số đầu Phiếu"
                 nhapPhieu()
@@ -179,6 +202,7 @@ class MainActivity : AppCompatActivity() {
      * - Số cuối phiếu = đầu phiếu + số kết
      * - Số MC phiếu = số kết * 20
      */
+
     private fun nhapPhieu() {
         val soKetPhieu = binding.edtSoKetPhieu.text.toString().toDoubleOrNull() ?: 0.0
         val soDauPhieu = binding.edtSoDauPhieu.text.toString().toDoubleOrNull() ?: 0.0
