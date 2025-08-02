@@ -179,6 +179,7 @@ class MainActivity : AppCompatActivity() {
      * - Số cuối phiếu = đầu phiếu + số kết
      * - Số MC phiếu = số kết * 20
      */
+
     private fun nhapPhieu() {
         val soKetPhieu = binding.edtSoKetPhieu.text.toString().toDoubleOrNull() ?: 0.0
         val soDauPhieu = binding.edtSoDauPhieu.text.toString().toDoubleOrNull() ?: 0.0
