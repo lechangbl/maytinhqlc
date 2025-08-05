@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity() {
     private fun tinhSoChai() {
         val theTich = binding.edtNhapTheTich.text.toString().toDoubleOrNull() ?: 0.0
         val soChai = theTich / 0.00355
-        val soNgatRong = ((soChai - 19000) / 1000).toInt() * 1000
+        val soNgatRong = ((soChai.toInt() - 19000) / 1000) * 1000
 
         val soChaiText = if (soChai > 0) "% ,d".format(soChai.toInt()) else "0"
         val soNgatRongText = if (soNgatRong > 0) "% ,d".format(soNgatRong.toInt()) else "0"
@@ -186,7 +186,7 @@ class MainActivity : AppCompatActivity() {
     private fun tinhSoPallet() {
         val soMayChiet = binding.edtNhapSoMayChiet.text.toString().toDoubleOrNull() ?: 0.0
         val soPallet = soMayChiet / 1080
-        val soKetTP = soPallet * 54
+        val soKetTP = soPallet.toInt() * 54
 
         val soPalletText = if (soPallet > 0) "% ,d".format(soPallet.toInt()) else "0"
         val soKetTPText = if (soKetTP > 0) "% ,d".format(soKetTP.toInt()) else "0"
